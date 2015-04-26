@@ -1,0 +1,6 @@
+# ignore build Cabal build files
+
+/Setup
+/Setup.hi
+/Setup.o
+/dist/*

@@ -1,0 +1,32 @@
+name:                quizmaster
+version:             0
+synopsis:            Spaced repetition flash card learning system.
+homepage:            https://github.com/peti/quizmaster
+bug-reports:         https://github.com/peti/quizmaster/issues
+license:             AGPL-3
+license-file:        LICENSE
+author:              Peter Simons
+maintainer:          simons@cryp.to
+category:            Learning
+build-type:          Simple
+extra-source-files:  README.md
+cabal-version:       >= 1.10
+description:         Spaced repetition flash card learning system.
+
+source-repository head
+  type:              git
+  location:          git://github.com/peti/quizmaster.git
+
+executable quizmaster
+  main-is:           quizmaster.hs
+  hs-source-dirs:    src
+  default-language:  Haskell2010
+  build-depends:     base < 5, cgi, blaze-markup, blaze-html, bytestring, pandoc,
+                     filepath, hakyll
+
+test-suite spec
+  type:              exitcode-stdio-1.0
+  main-is:           spec.hs
+  hs-source-dirs:    test
+  default-language:  Haskell2010
+  build-depends:     base, hspec
