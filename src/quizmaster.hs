@@ -16,7 +16,7 @@ import System.Random
 -- import qualified Text.Pandoc.UTF8 as UTF8
 
 datadir :: FilePath
-datadir = "/home/simons/src/quizmaster/data"
+datadir = "/home/simons/src/quizmaster/htdocs"
 
 type Ident = FilePath
 

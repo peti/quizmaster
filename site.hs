@@ -18,6 +18,7 @@ import Text.Blaze.XHtml1.Strict.Attributes hiding ( title, span )
 import Text.Pandoc hiding ( Div )
 import qualified Text.Pandoc.UTF8 as UTF8
 import Text.Printf
+import System.FilePath
 
 data Op = Plus | Minus | Mul | Div
   deriving (Bounded, Enum, Show)
@@ -58,12 +59,12 @@ main = do
                                     ! style "border:outset; padding:5px; text-decoration:none;"
                                     $ toHtml grade
 
-            writeFile qfile $ renderHtml $ docTypeHtml $ do
+            writeFile ("htdocs" </> qfile) $ renderHtml $ docTypeHtml $ do
               head $ do meta ! httpEquiv "Content-Type" ! content "text/html; charset=UTF-8"
                         title "Mental Arithmetic"
               myBody $ do pRight $ a ! href (toValue afile) ! style "border:outset; padding:5px; text-decoration:none;" $ "Show answer"
                           pCenter $ toHtml question
-            writeFile afile $ renderHtml $ docTypeHtml $ do
+            writeFile ("htdocs" </> afile) $ renderHtml $ docTypeHtml $ do
               head $ do meta ! httpEquiv "Content-Type" ! content "text/html; charset=UTF-8"
                         title "Mental Arithmetic"
               myBody $ do pRight $ do
@@ -78,4 +79,4 @@ main = do
                           hr
                           pCenter $ toHtml answer
             return ['/':qfile]
-  writeFile "manifest" (unlines $ concat $ concat $ concat cards)
+  writeFile "htdocs/manifest" (unlines $ concat $ concat $ concat cards)
