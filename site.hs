@@ -1,9 +1,10 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-import Prelude hiding ( head, span )
+import Control.Applicative
+import Control.Monad
 import Data.Char
 import Data.List hiding ( head, span )
-import Control.Monad
+import Prelude hiding ( head, span )
 import System.FilePath
 import Text.Blaze.Html
 import Text.Blaze.Html.Renderer.Pretty
