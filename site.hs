@@ -1,24 +1,15 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 import Prelude hiding ( head, span )
-import Data.Monoid
 import Data.Char
-import Data.String
 import Data.List hiding ( head, span )
 import Control.Monad
-import qualified Data.ByteString as BS
-import qualified Data.ByteString.Lazy.Char8 as BL
-import Network.CGI hiding ( Html )
 import System.FilePath
 import Text.Blaze.Html
 import Text.Blaze.Html.Renderer.Pretty
 import Text.Blaze.XHtml1.Strict hiding ( div, style )
-import qualified Text.Blaze.XHtml1.Strict as HTML
 import Text.Blaze.XHtml1.Strict.Attributes hiding ( title, span )
-import Text.Pandoc hiding ( Div )
-import qualified Text.Pandoc.UTF8 as UTF8
 import Text.Printf
-import System.FilePath
 
 data Op = Plus | Minus | Mul | Div
   deriving (Bounded, Enum, Show)

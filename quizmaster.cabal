@@ -11,7 +11,7 @@ category:            Learning
 build-type:          Simple
 extra-source-files:  README.md
 cabal-version:       >= 1.10
-tested-with:         GHC > 8 && < 8.1
+tested-with:         GHC > 7.8 && < 8.1
 description:         Spaced repetition flash card learning system.
 
 source-repository head
@@ -22,8 +22,12 @@ executable quizmaster
   main-is:           quizmaster.hs
   hs-source-dirs:    src
   default-language:  Haskell2010
-  build-depends:     base < 5, cgi, blaze-markup, blaze-html, bytestring, pandoc,
-                     filepath, hakyll, containers, time, random
+  build-depends:     base < 5, filepath, cgi, random, time, containers
+
+executable site
+  main-is:           site.hs
+  default-language:  Haskell2010
+  build-depends:     base < 5, filepath, blaze-html
 
 test-suite spec
   type:              exitcode-stdio-1.0
